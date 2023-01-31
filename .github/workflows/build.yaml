@@ -90,7 +90,7 @@ jobs:
       with:
         name: ${{ env.GITHUB_REF_NAME }}
         tag: ${{ env.GITHUB_REF_NAME }}
-        artifacts: cmd/hashy/builds/hashy
+        artifacts: ./cmd/hashy/builds/hashy
         bodyFile: "body.log"
         token: ${{ secrets.GITHUB_TOKEN }}
         removeArtifacts: true

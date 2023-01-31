@@ -49,7 +49,7 @@ cd build
 [ -f go.mod ] || go mod init rnemeth90/$CUR_DIR
 go mod tidy
 set -x
-go build -ldflags "-X main.Version=$newtag -X main.BuiltBy=bash" cmd/hashy/main.go
+go build -o hashy -ldflags "-X main.Version=$newtag -X main.BuiltBy=bash" main.go
 set +x
 cd ..
 echo "GoLang binary built as build/main"
@@ -81,7 +81,7 @@ if [[ "$answer" == "y" ]]; then
   git commit -a -m "changes for new tag $newtag"
   git tag $newtag && git push origin $newtag
   git push
-  gh release create $newtag -F /tmp/$newtag.log build/main.go
+  gh release create $newtag -F /tmp/$newtag.log build/hashy
   set +x
 else
   echo "aborted release creation"
