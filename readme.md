@@ -18,6 +18,7 @@ Download the latest release [here](https://github.com/rnemeth90/hashy/releases)
 If you need help, submit an issue
 
 ## To Do
+- [ ] Finish readme
 - [x] reading from stdin doesn't work, fix it
 - [x] add hashing algorithms and functions (md5)
 - [x] add test for run() func
