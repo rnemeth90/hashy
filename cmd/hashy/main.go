@@ -1,10 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"strings"
 
@@ -29,7 +29,7 @@ func init() {
 }
 
 func usage() {
-	fmt.Printf("%s\n\n",os.Args[0])
+	fmt.Printf("%s\n\n", os.Args[0])
 
 	fmt.Println("Usage:")
 	fmt.Printf("  hashy -t hashme -c sha256\n")
@@ -42,33 +42,17 @@ func usage() {
 func main() {
 	flag.Parse()
 
-	// check if the plainText is passed via arg
 	cliArgs := flag.Args()
-
-	stdin, err := os.Stdin.Stat()
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
-	}
-
+	stdin, _ := os.Stdin.Stat()
 	var t string
 
 	// determine where we are getting our plaintext from
 	if text != "" {
 		t = text
 	} else if (stdin.Mode() & os.ModeCharDevice) == 0 {
-		f, err := os.Open(stdin.Name())
-		if err != nil {
-			fmt.Fprintln(os.Stderr, err)
-			os.Exit(1)
-		}
-
-		contents, err := ioutil.ReadAll(f)
-		if err != nil {
-			fmt.Fprintln(os.Stderr, err)
-			os.Exit(1)
-		}
-		t = string(contents)
+		scanner := bufio.NewScanner(os.Stdin)
+		scanner.Scan()
+		t = scanner.Text()
 	} else if len(cliArgs) > 0 {
 		t = cliArgs[0]
 	}
@@ -82,7 +66,6 @@ func main() {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
-
 }
 
 // using io.writer here makes this function easily testable.
