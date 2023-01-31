@@ -7,9 +7,7 @@
 # check for Go Lang compiler and Github CLI binaries
 go_bin=$(which go)
 [ -n "$go_bin" ] || {
-  echo "ERROR GoLang binary not available, install it using Reading package lists...
-Building dependency tree...
-Reading state information..."
+  echo "ERROR GoLang binary not available, install it using $(sudo apt install go)"
   exit 2
 }
 gh_bin=$(which gh)
@@ -30,8 +28,8 @@ if git tag --sort=committerdate | grep -q ^r; then
     exit 3
   }
 
-  major_minor=$(echo "" | cut -d'.' -f1-2)
-  patch=$semantic_version
+  major_minor=$(echo "$semantic_version" | cut -d'.' -f1-2)
+  patch=$(echo "$semantic_version" | cut -d'.' -f3)
   ((patch++))
   newtag="${major_minor}.${patch}"
 else
