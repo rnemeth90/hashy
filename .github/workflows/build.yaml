@@ -94,3 +94,6 @@ jobs:
         bodyFile: "body.log"
         token: ${{ secrets.GITHUB_TOKEN }}
         removeArtifacts: true
+        allowUpdates: "true"
+
+
