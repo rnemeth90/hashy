@@ -41,6 +41,7 @@ jobs:
     - run: |
         go version
         cd ./cmd/hashy/
+        mkdir builds
         ls -lisa
         if [ ! -e *.mod ]; then
           go mod init ${GITHUB_REPOSITORY}
@@ -49,8 +50,8 @@ jobs:
         go build -o hashy -ldflags "-X main.Version=${GITHUB_REF_NAME} -X main.BuiltBy=github-actions" main.go
         # execFile=$(find . -type f -executable)
         # echo "Copying $execFile"
-        # cp hashy ../../
-        ls -lisa ../../
+        mv hashy builds/
+        ls -lisa builds
         # cd ../../
 
     - run: git version
@@ -89,7 +90,7 @@ jobs:
       with:
         name: ${{ env.GITHUB_REF_NAME }}
         tag: ${{ env.GITHUB_REF_NAME }}
-        artifacts: cmd/hashy/hashy
+        artifacts: cmd/hashy/builds/hashy
         bodyFile: "body.log"
         token: ${{ secrets.GITHUB_TOKEN }}
         removeArtifacts: true
