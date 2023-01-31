@@ -51,6 +51,7 @@ jobs:
         echo "Copying $execFile"
         cp hashy ../../
         ls -lisa ../../
+        cd ../../
 
     - run: git version
     - run: git branch
@@ -88,7 +89,7 @@ jobs:
       with:
         name: ${{ env.GITHUB_REF_NAME }}
         tag: ${{ env.GITHUB_REF_NAME }}
-        artifacts: "hashy"
+        artifacts: hashy
         bodyFile: "body.log"
         token: ${{ secrets.GITHUB_TOKEN }}
         removeArtifacts: true
