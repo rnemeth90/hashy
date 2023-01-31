@@ -1,6 +1,6 @@
 # hashy [![build-release-binary](https://github.com/rnemeth90/hashy/actions/workflows/build.yaml/badge.svg)](https://github.com/rnemeth90/hashy/actions/workflows/build.yaml) [![Go Report Card](https://goreportcard.com/badge/github.com/rnemeth90/hashy/)](https://goreportcard.com/report/github.com/rnemeth90/hashy/)
 ## Description
-Hasher is a tool for generating cryptographic hashes of strings.
+hashy is a tool for generating cryptographic hashes of strings.
 
 ## Getting Started
 
