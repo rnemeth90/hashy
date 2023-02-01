@@ -13,12 +13,30 @@ Hashy is simple. Pass it a string from stdin, as an argument to the program itse
 Download the latest release [here](https://github.com/rnemeth90/hashy/releases)
 
 ### Executing program
+```
+ryan:hashy/  |main ✓|$ hashy -h
+hashy
+
+Usage:
+  hashy -t hashme -c sha256
+  hashy -t hashme -c sha512_224
+
+Options:
+  -c string
+        the cypher to use;
+        sha224, sha256, sha384, sha512, sha512_224, sha512_256, md5 (default "sha256")
+  -t string
+        the plain text to cypher
+```
+
+### Supported Algorithms
+sha224, sha256, sha384, sha512, sha512_224, sha512_256, md5. More to come.
 
 ## Help
 If you need help, submit an issue
 
 ## To Do
-- [ ] Finish readme
+- [x] Finish readme
 - [x] reading from stdin doesn't work, fix it
 - [x] add hashing algorithms and functions (md5)
 - [x] add test for run() func
