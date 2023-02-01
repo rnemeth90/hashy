@@ -48,11 +48,11 @@ jobs:
         fi
         go mod tidy
         go build -o hashy -ldflags "-X main.Version=${GITHUB_REF_NAME} -X main.BuiltBy=github-actions" main.go
-        # execFile=$(find . -type f -executable)
-        # echo "Copying $execFile"
         mv hashy builds/
         ls -lisa builds
-        # cd ../../
+
+    - run: |
+        go test -v
 
     - run: git version
     - run: git branch
