@@ -51,7 +51,11 @@ jobs:
         mv hashy builds/
         ls -lisa builds
 
-    - run: |
+    - name: go test
+      id: test
+      run: |
+        go test -v
+        cd ./cmd/hashy/
         go test -v
 
     - run: git version
