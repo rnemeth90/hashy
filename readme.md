@@ -45,6 +45,10 @@ If you need help, submit an issue
 - [x] Ensure builds are working
 
 ## Version History
+* 1.0.4
+    * More tests
+* 1.0.3
+    * Tests
 * 1.0.2
     * Fix issue with stdin
 * 1.0.1
