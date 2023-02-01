@@ -3,7 +3,7 @@
 hashy is a tool for generating cryptographic hashes of strings.
 
 ## Getting Started
-
+Hashy is simple. Pass it a string from stdin, as an argument to the program itself, or using the `-t` flag. You can specify the hashing algorithm using the `-c` flag.
 
 ### Dependencies
 * to build yourself, you must have Go v1.14+ installed
